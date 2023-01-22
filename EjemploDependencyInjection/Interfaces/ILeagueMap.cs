@@ -2,9 +2,11 @@
 
 namespace EjemploDependencyInjection.Interfaces;
 
-public interface IExampleTransientService : IReportServiceLifetime
+public interface ILeagueMap : IReportServiceLifetime
 {
     ServiceLifetime IReportServiceLifetime.Lifetime => ServiceLifetime.Transient;
-    void ReportLifetime();
+    void StartGame();
+
+    string SayGameStart();
 
 }

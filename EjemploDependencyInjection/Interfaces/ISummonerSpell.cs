@@ -2,8 +2,9 @@
 
 namespace EjemploDependencyInjection.Interfaces;
 
-public interface IExampleSingletonService : IReportServiceLifetime
+public interface ISummonerSpell : IReportServiceLifetime
 {
     ServiceLifetime IReportServiceLifetime.Lifetime => ServiceLifetime.Singleton;
 
+    string SayName();
 }

@@ -1,14 +1,19 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using EjemploDependencyInjection.Implements;
+﻿using EjemploDependencyInjection.Implements;
+using EjemploDependencyInjection.Implements.Champions;
+using EjemploDependencyInjection.Implements.LeagueMaps;
+using EjemploDependencyInjection.Implements.SummonerSpells;
 using EjemploDependencyInjection.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 using IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
-        services.AddTransient<IExampleTransientService, WildRift>();
-        services.AddScoped<IExampleScopedService, Champion>();
-        services.AddSingleton<IExampleSingletonService, Ability>();
+        services.AddTransient<ILeagueMap, WildRift>();
+        services.AddScoped<IChampion, MidLaner>();
+        services.AddScoped<IChampion, TopLaner>();
+        services.AddSingleton<ISummonerSpell, Flash>();
+        services.AddSingleton<ISummonerSpell, Ignite>();
         services.AddTransient<ServiceLifetimeReporter>();
     })
     .Build();
